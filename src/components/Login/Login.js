@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 import styles from './Login.module.css';
-import { getIsAuthorized, addApiKey } from '../../modules/Auth';
+
+import  getIsAuthorized  from '../../modules/Auth';
+import  addApiKey  from '../../modules/Auth';
+
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import Input from '../Input';
