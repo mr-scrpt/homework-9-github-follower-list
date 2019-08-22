@@ -30,12 +30,12 @@ export default combineReducers({
 
 //Селекторы
 export const getIsFetching = createSelector(
-  state => state.followers.isFetching,
+  state => state.user.isFetching,
   isLoading => isLoading
 );
 
 
 export const getUserInfo = createSelector(
-  state => state.followers.data,
+  state => state.user.data,
   data => data
 );
