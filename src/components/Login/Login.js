@@ -21,7 +21,9 @@ class Login extends PureComponent {
   };
 
   handleKeyPress = event => {
+
     const { addApiKey } = this.props;
+
     const { key } = this.state;
 
     if (event.key === 'Enter') addApiKey(key);
@@ -34,9 +36,7 @@ class Login extends PureComponent {
   render() {
     const { isAuthorized } = this.props;
     const { key } = this.state;
-
     if (isAuthorized) return <Redirect to="/search" />;
-
     return (
       <div className={styles.root}>
         <h1>Токен авторизации</h1>
@@ -52,7 +52,6 @@ class Login extends PureComponent {
           и создать себе токен. Запишите куда нибудь токен, так как после
           создания доступ к нему будет только один раз.
         </p>
-
         <Input
           ref={this.input}
           value={key}
@@ -61,7 +60,6 @@ class Login extends PureComponent {
           onChange={this.handleChange}
           onKeyPress={this.handleKeyPress}
         />
-
         <p>После ввода нажмите Enter</p>
       </div>
     );

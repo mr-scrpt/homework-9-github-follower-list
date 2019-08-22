@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import {fetchRequest, fetchSuccess, fetchFailure} from './actions'
+import {createSelector} from "reselect";
 
 // Обратите внимание на тесты, они помогут вам написать код редьюсера
 
 
-const isLoading = handleActions({
+const isFetching = handleActions({
   [fetchRequest]: () => true,
   [fetchFailure]: () => true,
   [fetchSuccess]: () => false
@@ -22,7 +23,19 @@ const error = handleActions({
 }, null);
 
 export default combineReducers({
-  isLoading,
+  isFetching,
   data,
   error
 });
+
+//Селекторы
+export const getIsFetching = createSelector(
+  state => state.followers.isFetching,
+  isLoading => isLoading
+);
+
+
+export const getUserInfo = createSelector(
+  state => state.followers.data,
+  data => data
+);

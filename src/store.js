@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer, { rootSaga } from './modules';
 
 // Создайте sagaMiddleware
-//const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware();
 
 const createAppStore = () => {
   // Подключите корневой редьюсер
@@ -12,11 +12,11 @@ const createAppStore = () => {
   const store = createStore(
     rootReducer,
     compose(
-      //applyMiddleware(sagaMiddleware),
+      applyMiddleware(sagaMiddleware),
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
   );
-  //sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
 
   return store;
 };
