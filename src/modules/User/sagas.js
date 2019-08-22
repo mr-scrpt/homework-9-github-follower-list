@@ -14,7 +14,6 @@ export function* fetchUserFlow(action) {
   try {
     const apiKey = yield select(getApiKey);
     const res = yield call(getUserInfo, apiKey, user);
-    console.log(res);
     yield put(fetchSuccess(res));
 
   }catch (e) {
