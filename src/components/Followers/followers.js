@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import styles from './followers.module.css';
-import {getIsFetching, getFollowersInfo} from '../../modules/Followers';
+import {getIsFetching, getFollowersInfo, getIsLoading} from '../../modules/Followers';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 
@@ -36,6 +36,6 @@ class Followers extends PureComponent {
 
 // Используйте поля data, isLoading из стейта
 export default connect(state => ({
-  isFetching: getIsFetching(state),
+  isFetching: getIsLoading(state),
   followers: getFollowersInfo(state)
 }))(Followers);

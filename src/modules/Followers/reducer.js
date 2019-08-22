@@ -7,7 +7,7 @@ import {createSelector} from 'reselect';
 // Обратите внимание на тесты reducer.Test.js
 // Они помогут вам написать редьюсер
 
-const isFetching = handleActions({
+const isLoading = handleActions({
   [fetchRequest]: () => true,
   [fetchFailure]: () => false,
   [fetchSuccess]: () => false
@@ -24,18 +24,18 @@ const error = handleActions({
 }, null);
 
 export default combineReducers({
-  isFetching,
+  isLoading,
   data,
   error
 });
 
 // Селекторы
-// export const getIsFetching = state => state.followers.isFetching;
+// export const getIsLoading = state => state.followers.isLoading;
 // export const getFollowersInfo = state => state.followers.data;
 
-export const getIsFetching = createSelector(
-  state => state.followers.isFetching,
-  isFetching => isFetching
+export const getIsLoading = createSelector(
+  state => state.followers.isLoading,
+  isLoading => isLoading
 );
 
 export const getFollowersInfo = createSelector(
